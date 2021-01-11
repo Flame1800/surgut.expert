@@ -1,0 +1,106 @@
+.places {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    user-select: none;
+
+    .content {
+        width: 80%;
+
+        .head {
+            margin-bottom: 30px;
+
+            .title {
+                font-size: 48px;
+                font-weight: 500;
+                margin-top: 30px;
+                border-bottom: 1px solid #000;
+                margin-bottom: 20px;
+            }
+
+            .filter-items {
+                display: flex;
+                flex-wrap: wrap;
+
+                .item {
+                    margin: 10px;
+                    padding: 10px 20px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border: #000 1px solid;
+                    border-radius: 10px;
+                    font-size: 24px;
+                }
+            }
+        }
+
+        .items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            .item {
+                display: flex;
+                flex-direction: column;
+                max-width: 301px;
+                width: 100%;
+                border-radius: 20px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+                height: 280px;
+                position: relative;
+                margin-right: 25px;
+                margin-bottom: 25px;
+
+                .container {
+                    cursor: pointer;
+                }
+                
+                .like-btn {
+                    position: absolute;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    background: #fff;
+                    top: 10px;
+                    right: 10px;
+                }
+
+                .img {
+                    height: 175px;
+                    width: 100%;
+                    background: url('../public/img/rest.png');
+                    border-radius: 20px 20px 0 0;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                }
+
+                .main {
+                    margin-left: 20px;
+                }
+
+                .name {
+                    margin-top: 15px;
+                    margin-bottom: 15px;
+                    font-size: 16px;
+                    font-weight: 500;
+                    text-overflow: ellipsis;
+                    max-width: 210px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    cursor: pointer;
+                }
+
+                .address {
+                    font-size: 14px;
+                    font-weight: 400;
+                    text-overflow: ellipsis;
+                    max-width: 210px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                }
+            }
+        }
+        
+    }
+}
