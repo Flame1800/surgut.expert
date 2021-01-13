@@ -1,5 +1,5 @@
 import MainLayout from '../../componetns/MainLayout.js';
-import Head from 'next/head'
+import Head from 'next/head';
 import Link from 'next/link';
 
 export default function Place({ place }) {
@@ -25,12 +25,12 @@ export default function Place({ place }) {
                                 <div className="title">Оценки</div>
                                 <div className="items">
                                     <div className="item">
-                                        <div className="name">Питание</div>
-                                        <div className="icons"></div>
+                                        <div className="item-name">Питание</div>
+                                        <div className="icons">* * * * *</div>
                                     </div>
                                     <div className="item">
-                                        <div className="name">Обслуживание</div>
-                                        <div className="icons"></div>
+                                        <div className="item-name">Обслуживание</div>
+                                        <div className="icons">* * * * *</div>
                                     </div>
                                 </div>
                             </div>
@@ -51,6 +51,7 @@ export default function Place({ place }) {
                         </div>
                     </div>
                     <div className="rewiews">
+                        <div className="title">Отзывы</div>
                         <div className="item">
                             <div className="name">Иван Иванов</div>
                             <div className="rewiew">
@@ -60,10 +61,6 @@ export default function Place({ place }) {
                     </div>
                 </div>
             </div>
-            <h3>{place.title}</h3>
-            <hr />
-            <p>{place.body}</p>
-            <Link href={`/places`}><a>Назад</a></Link>
         </MainLayout>
     )
 }

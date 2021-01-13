@@ -22,7 +22,7 @@ export default function Catalog({ places }) {
                     </div>
                     <div className="items">
                         {places.map(place => (
-                            <div className="item">
+                            <div className="item" key={place.id}>
                                 <div className="like-btn"></div>
                                 <Link href='place/[id]' as={`place/${place.id}`}>
                                     <div className='container'>

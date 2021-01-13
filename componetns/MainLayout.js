@@ -10,7 +10,6 @@ export default function MainLayout ({ children }) {
             </Head>
             <nav className={classes.nav}>
                 <div className={classes.logo}>
-                    
                 </div>
                 <div className={classes.navmenu}>
                     <Link href='/'><a>Главная</a></Link>

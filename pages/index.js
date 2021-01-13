@@ -1,92 +1,90 @@
 import MainLayout from '../componetns/MainLayout.js';
 
-export default function Home(props) {
+export default function Home({ places }) {
   return (
     <MainLayout title='Surgut.expert'>
-      <div className="home">
-        <div className="content">
-          <div className="title">Все о Сургуте</div>
-          <div className="block">
-            <div className="sub-title">
-              Добро пожаловать!
+      <div className="main-fon-1">
+        <div className="home">
+          <div className="header">
+            <div className="content">
+              <div className="title">Все о Сургуте</div>
+              <div className="block">
+                <div className="sub-title">
+                  Добро пожаловать!
                 <br />
                 Будьте в курсе мероприятий вашего города
             </div>
-            <div className="weather">
-              Погода: -24 C
+                <div className="weather">
+                  Погода: -24 C
             </div>
-          </div>
-          <div className="items">
-
-            {/* {props.items.map(item => (
-                <div className='item' key={item.id}>
+              </div>
+              <div className="items">
+                <div className="item">
                   <div className="icon"></div>
-                  <div className="name">{item.title}</div>
+                  <div className="name">Доставка еды</div>
                 </div>
-              ))} */}
-            <div className="item">
-              <div className="icon"></div>
-              <div className="name">Доставка еды</div>
-            </div>
-            <div className="item">
-              <div className="icon"></div>
-              <div className="name">Доставка еды</div>
-            </div>
-            <div className="item">
-              <div className="icon"></div>
-              <div className="name">Доставка еды</div>
-            </div>
-            <div className="item">
-              <div className="icon"></div>
-              <div className="name">Доставка еды</div>
-            </div>
-            <div className="item">
-              <div className="icon"></div>
-              <div className="name">Доставка еды</div>
-            </div>
-            <div className="item">
-              <div className="icon"></div>
-              <div className="name">Доставка еды</div>
-            </div>
-            <div className="item">
-              <div className="icon"></div>
-              <div className="name">Доставка еды</div>
-            </div>
-            <div className="item">
-              <div className="icon"></div>
-              <div className="name">Доставка еды</div>
-            </div>
-            <div className="item">
-              <div className="icon"></div>
-              <div className="name">Доставка еды</div>
-            </div>
-            <div className="item">
-              <div className="icon"></div>
-              <div className="name">Доставка еды</div>
+                <div className="item">
+                  <div className="icon"></div>
+                  <div className="name">Доставка еды</div>
+                </div>
+                <div className="item">
+                  <div className="icon"></div>
+                  <div className="name">Доставка еды</div>
+                </div>
+                <div className="item">
+                  <div className="icon"></div>
+                  <div className="name">Доставка еды</div>
+                </div>
+                <div className="item">
+                  <div className="icon"></div>
+                  <div className="name">Доставка еды</div>
+                </div>
+                <div className="item">
+                  <div className="icon"></div>
+                  <div className="name">Доставка еды</div>
+                </div>
+                <div className="item">
+                  <div className="icon"></div>
+                  <div className="name">Доставка еды</div>
+                </div>
+                <div className="item">
+                  <div className="icon"></div>
+                  <div className="name">Доставка еды</div>
+                </div>
+                <div className="item">
+                  <div className="icon"></div>
+                  <div className="name">Доставка еды</div>
+                </div>
+                <div className="item">
+                  <div className="icon"></div>
+                  <div className="name">Доставка еды</div>
+                </div>
+              </div>
+              <div className="items-plus">
+                <div className="btn">
+                  <div className="text">Больше напрвавлений</div>
+                  <div className="icon"></div>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="items-plus">
-            <div className="btn">
-              <div className="text">Больше напрвавлений</div>
-              <div className="icon"></div>
-            </div>
-          </div>
-          <div className="news-block">
-            <div className="title">Новости</div>
-            <div className="news">
-              <div className="item">
-                The React Framework
-                for Production
-              </div>
-              <div className="item">
-                Next.js need for production:
-              </div>
-              <div className="item">
-                experience with all the features you
-              </div>
-              <div className="item">
-                features you
-              </div>
+          <div className="place-items">
+            <div className="container-items">
+              {places.map((place) => (
+                <div className="item" key={place}>
+                  <div className="like-btn"></div>
+                  <div className='container'>
+                    <div className="img"></div>
+                    <div className="main">
+                      <div className="name">Сургут СИТИ-МОЛЛ</div>
+                      <div className="type">Торгово-развлекательный центр</div>
+                      <div className="address">
+                        Югорский тракт, 38
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -95,39 +93,11 @@ export default function Home(props) {
   )
 }
 
-// export async function getStaticProps(context) {
 
-//   const items = [
-//     {
-//       id: 1,
-//       icon: '../public/img/icons-categories/eat.png',
-//       title: 'Доставка еды'
-//     },
-//     {
-//       id: 2,
-//       icon: '../public/img/icons-categories/eat.png',
-//       title: 'Доставка еды'
-//     },
-//     {
-//       id: 3,
-//       icon: '../public/img/icons-categories/eat.png',
-//       title: 'Доставка еды'
-//     },
-//     {
-//       id: 4,
-//       icon: '../public/img/icons-categories/eat.png',
-//       title: 'Доставка еды'
-//     },
-//     {
-//       id: 5,
-//       icon: '../public/img/icons-categories/eat.png',
-//       title: 'Доставка еды'
-//     },
-//   ]
-
-//   return {
-//     props: {
-//       items
-//     }, // will be passed to the page component as props
-//   }
-// }
+export async function getStaticProps(context) {
+  return {
+    props: {
+      places: [1, 2, 3, 4, 5, 6, 7, 8, 9, 44,534,43,23,13,3132,2123,123]
+    }, 
+  }
+}

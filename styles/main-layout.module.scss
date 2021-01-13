@@ -9,14 +9,17 @@
     height: 60px;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #000;  
-    background: #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.664);  
     z-index: 999;
+    background: rgba( 255, 255, 255, 0.40 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 9.5px );
+    -webkit-backdrop-filter: blur( 9.5px );
 }
 
 .logo {
     background: url('../public/img/logo.png');
-    width: 150px;
+    width: 120px;
     height: 42px;
     background-repeat: no-repeat;
     background-size: contain;
