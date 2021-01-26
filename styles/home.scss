@@ -1,6 +1,6 @@
 .main-fon-1 {
     width: 100%;
-    background-image: url('../public/img/fon-2.png');
+    background-image: url('../public/img/fon-3.png');
     background-repeat: no-repeat;
     height: auto;
     position: absolute;
@@ -36,7 +36,7 @@
         }
 
         .sub-title {
-            font-size: 18px;
+            font-size: 20px;
             color: #fff;
             font-weight: 400;
             margin-right: 50px;
@@ -63,7 +63,7 @@
                 align-items: center;
                 justify-content: center;
                 width: 120px;
-                height: 100px;
+                height: 90px;
                 margin: 10px;
                 background: #fff;
                 box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.25);
@@ -72,6 +72,10 @@
                 font-size: 14px;
                 cursor: pointer;
                 transition: 0.2s;
+
+                .name {
+                    margin-top: 10px;
+                }
 
                 &:hover {
                     background: rgba(255, 255, 255, 0.199);
@@ -89,7 +93,6 @@
             }
 
             .icon {
-                background-image: url('../public/img/icons-categories/eat.png');
                 width: 34px;
                 height: 34px;
                 background-repeat: no-repeat;
@@ -102,7 +105,7 @@
             margin-bottom: 45px;
 
             .btn {
-                width: 266px;
+                width: 260px;
                 display: flex;
                 padding: 15px;
                 align-items: center;
@@ -111,25 +114,56 @@
                 box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
                 border-radius: 8px;
                 transition: 0.2s;
+                font-size: 16px;
                 cursor: pointer;
+                position: relative;
+                z-index: 90;
 
                 &:hover {
-                    background: rgba(255, 255, 255, 0.199);
-                    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+                    background: rgba(255, 255, 255, 0.521);
                     backdrop-filter: blur( 5px );
-                    color: #fff;
-
-                    .icon {
-                        filter: invert(1);
-                    }
-                }
-    
+                }    
             }
 
             .icon {
                 background: url('../public/img/arrow-down.png');
-                width: 11px;
-                height: 11px;
+                width: 12px;
+                height: 12px;
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+
+            
+            .drop-box {
+                background: rgba(255, 255, 255, 0.63);
+                width: 260px;
+                margin-top: -45px;
+                padding-top: 40px;
+                border-radius: 10px;
+                backdrop-filter: blur(8px);
+                position: absolute;
+                z-index: 80;
+
+                .item {
+                    padding-left: 10px;
+                    padding-top: 18px;
+                    border-bottom:  1px solid #585858;
+                    color: #202020;
+                    padding-bottom: 18px;
+                    cursor: pointer;
+                    transition: 0.2s;
+
+                    &:last-child {
+                        border-bottom: none;
+                    }
+
+                    &:hover {
+                        background: rgba(255, 255, 255, 0.753);
+                        &:last-child {
+                            border-radius: 0 0 10px 10px;
+                        }
+                    }
+                }
             }
         }
 
@@ -151,77 +185,15 @@
 .home .place-items {
     display: flex;
     justify-content: center;
-    padding-top: 100px;
+    padding-top: 50px;
     background: rgba( 255, 255, 255, 0.40 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
 
     .container-items {
         max-width: 70%;
         display: flex;
+        justify-content: space-around;
         flex-wrap: wrap;
-        justify-content: center;
     }
 
-    .item {
-        display: flex;
-        flex-direction: column;
-        width: 301px;
-        border-radius: 20px;
-        height: 280px;
-        position: relative;
-        margin-right: 25px;
-        margin-bottom: 25px;
-        background: rgba(255, 255, 255, 0.199);
-        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-
-        .container {
-            cursor: pointer;
-        }
-        
-        .like-btn {
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background: #fff;
-            top: 10px;
-            right: 10px;
-        }
-
-        .img {
-            height: 175px;
-            width: 100%;
-            border-radius: 20px 20px 0 0;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-
-        .main {
-            margin-left: 20px;
-        }
-
-        .name {
-            margin-top: 15px;
-            font-size: 16px;
-            font-weight: 500;
-            text-overflow: ellipsis;
-            max-width: 210px;
-            white-space: nowrap;
-            overflow: hidden;
-            cursor: pointer;
-        }
-
-        .type {
-            margin-bottom: 15px;
-        }
-
-        .address {
-            font-size: 14px;
-            font-weight: 400;
-            text-overflow: ellipsis;
-            max-width: 210px;
-            white-space: nowrap;
-            overflow: hidden;
-        }
-    }
 }
