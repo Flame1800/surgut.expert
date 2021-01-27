@@ -1,14 +1,14 @@
 import React from 'react'
 import Link from 'next/link'
 
-export default function Place({ place }) {
+export default ({ place }) => {
     const [liked, setLiked] = React.useState(false)
     let likedClasses = 'like-icon '
 
     likedClasses = liked ? likedClasses + 'liked' : likedClasses
 
     return (
-        <div className="item-place" key={place.id}>
+        <div className="item-place">
             <div className="like-btn" onClick={() => setLiked(!liked)}>
                 <div className={likedClasses}></div>
             </div>

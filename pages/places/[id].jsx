@@ -4,7 +4,7 @@ import AliceCarousel from 'react-alice-carousel'
 import Rating from 'react-rating'
 import Image from 'next/image'
 
-export default function Place({ place }) {
+function Place({ place }) {
     const responsive = {
         0: { items: 1 },
         568: { items: 2 },
@@ -113,9 +113,11 @@ export default function Place({ place }) {
 }
 
 
-Place.getInitialProps = async (ctx) => {
+export async function getServerSideProps(ctx) {
     const responce = await fetch(`${process.env.API_URL}/places/${ctx.query.id}`);
     const place = await responce.json();
 
-    return { place };
+    return { props: { place } };
 }
+
+export default Place

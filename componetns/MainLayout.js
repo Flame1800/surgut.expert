@@ -15,7 +15,7 @@ export default function MainLayout({ children }) {
     return (
         <>
             <Head>
-                {/* <title>{props.title}</title> */}
+                <title>Surgut.expert</title>
             </Head>
             <nav className={classes.nav}>
                 <Link href='/'><div className={classes.logo}></div></Link>

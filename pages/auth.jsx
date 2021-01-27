@@ -1,6 +1,5 @@
 import React from 'react'
 import Link from 'next/link'
-import MainLayout from '../componetns/MainLayout.js'
 import Head from 'next/head'
 
 
