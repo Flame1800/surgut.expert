@@ -5,12 +5,14 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "json": "json-server --watch db.json --port 4000"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/react-fontawesome": "^0.1.14",
+    "apollo-server-micro": "^2.19.2",
     "next": "10.0.4",
     "react": "17.0.1",
     "react-alice-carousel": "^2.2.1",
