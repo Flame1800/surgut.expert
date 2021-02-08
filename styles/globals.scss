@@ -1,3 +1,8 @@
+@import "react-alice-carousel/lib/scss/alice-carousel.scss";
+// @import "./fontawesome/scss/fontawesome.scss";
+// @import "./fontawesome/scss/solid.scss";
+// @import "./fontawesome/scss/brands.scss";
+
 html,
 body {
   padding: 0;
@@ -13,4 +18,89 @@ a {
 
 * {
   box-sizing: border-box;
+}
+.item-place {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  height: 320px;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  background: rgba(255, 255, 255, 0.411);
+  border: 1px solid rgb(255, 255, 255);
+  position: relative;
+  margin-right: 25px;
+  margin-bottom: 25px;
+  transition: 0.2s;
+
+  &:hover {
+  background: rgba(255, 255, 255, 0.753);
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.87);
+  }   
+
+  .container {
+      cursor: pointer;
+  }
+  
+  .like-btn {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #fff;
+      top: 10px;
+      right: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      .like-icon {
+        background:url('../public/img/like-icon.png');
+        width: 16px;
+        height: 14px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        filter: grayscale(1);
+        transition: 0.1s;
+      }
+      .liked {
+        filter: none;
+      }
+  }
+
+  .img {
+      height: 190px;
+      width: 100%;
+      background: url('../public/img/rest.png');
+      border-radius: 20px 20px 0 0;
+      background-repeat: no-repeat;
+      background-size: cover;
+  }
+
+  .main {
+      margin-left: 20px;
+  }
+
+  .name {
+      margin-top: 15px;
+      margin-bottom: 15px;
+      font-size: 16px;
+      font-weight: 500;
+      text-overflow: ellipsis;
+      max-width: 210px;
+      white-space: nowrap;
+      overflow: hidden;
+      cursor: pointer;
+  }
+
+  .address {
+      font-size: 14px;
+      font-weight: 400;
+      text-overflow: ellipsis;
+      max-width: 210px;
+      white-space: nowrap;
+      overflow: hidden;
+  }
 }
