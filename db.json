@@ -1,4 +1,20 @@
 {
+    "users": [
+        {
+            "id": "test_id1",
+            "login": "user_test",
+            "phone": "+7-932-255-68-93",
+            "name": "Test User",
+            "password": "test_password"
+        },
+        {
+            "id": "test_id2",
+            "login": "user_test2",
+            "phone": "+7-932-277-58-55",
+            "name": "Test UserSecond",
+            "password": "test_password2"
+        }
+    ],
     "categories": [
         {
             "id": 1,

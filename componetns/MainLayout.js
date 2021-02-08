@@ -32,6 +32,14 @@ export default function MainLayout({ children }) {
                             ))}
                         </div>
                     </a>
+                    <Link href={`${process.env.BASE_URL}/auth`}>
+                        <div className={classes.person}>
+                            <div className={classes.icon}></div>
+                            <div className="text">
+                                Войти
+                        </div>
+                        </div>
+                    </Link>
                 </div>
             </nav>
             <main className={classes.main}>
