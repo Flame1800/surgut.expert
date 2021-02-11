@@ -1,3 +1,122 @@
+
+.person {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('../public/img/fon-3.png');
+    display: flex;
+    padding-top: 60px;
+    justify-content: center;
+
+    .content {
+        width: 80%;
+        max-width: 1350px;
+        background: rgba(255, 255, 255, 0.521);
+        padding-top: 50px;
+
+        .head {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding-bottom: 30px;            
+        }
+
+        .user {
+            display: flex;
+            flex-wrap: wrap;
+            margin-left: 30px;
+
+            .portret {
+                width: 150px;
+                height: 150px;
+                background-image: url('../public/img/portret.png');
+                background-repeat: no-repeat;
+            }
+
+            .user-data {
+                margin-left: 30px;
+            }
+
+            .name {
+                font-size: 36px !important;
+                color: #282828;
+                margin-bottom: 5px;
+                font-size: medium
+            }
+
+            .login {
+                font-size: 24px;
+                color: #545454;
+                margin-bottom: 30px;
+            }
+
+            .phone {
+                font-size: 22px;
+                color: #02005B;
+            }
+        }
+
+        .btn-add {
+            padding: 10px 20px;
+            background: #A8C5FF;
+            display: inline-table;
+            font-size: 21px;
+            color: #071824;
+            cursor: pointer;
+            transition: 0.3s;
+
+            &:hover {
+                background: #89b0ff;
+                color: #040e14;
+            }
+        }
+
+        .card {
+            .nav-card {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                width: 100%;
+                min-height: 50px;
+                background: #000;
+                background: #fefefea6;
+
+                .item {
+                    width: 200px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 0 20px;
+                    min-height: 50px;
+                    cursor: pointer;
+
+                    .text {
+                        font-size: 21px;
+                        margin-right: 15px;
+                        margin-left: 15px;
+                    }
+                    .value {
+                        font-size: 23px;
+                        margin-right: 20px;
+                        font-weight: 500;
+                        color: #0A11B8;
+                    }
+
+                    &:hover {
+                        border-bottom: 2px solid #c6c7d3;
+                    } 
+
+                    &.active {
+                        border-bottom: 2px solid #0A11B8; 
+                    }
+                }
+            }
+            .container-data {
+                padding: 40px;
+            }
+        }
+    }
+}
+
 .auth {
     background: url('../public/img/bg-surut.png');
     width: 100%;
