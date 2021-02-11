@@ -13,7 +13,7 @@ export default function Home({ places, categories, weather }) {
     return category[0].name
   }
   return (
-    <MainLayout title='Surgut.expert'>
+    <MainLayout key={Math.random()} title='Surgut.expert'>
       <div className="main-fon-1">
         <div className="home">
           <div className="header">
