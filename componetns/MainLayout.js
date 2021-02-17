@@ -5,11 +5,14 @@ import React from 'react'
 
 export default function MainLayout({ children }) {
     const [categories, setCategories] = React.useState([])
-    React.useEffect(async () => {
-        const reqCategories = await fetch(`${process.env.API_URL}/categories`);
-        const categoriesData = await reqCategories.json()
-
-        setCategories(categoriesData);
+    React.useEffect(() => {
+        const getData = async () => {
+            const reqCategories = await fetch(`${process.env.API_URL}/categories`);
+            const categoriesData = await reqCategories.json()
+    
+            setCategories(categoriesData);
+        }
+        getData();
     }, [])
 
     return (
@@ -32,6 +35,14 @@ export default function MainLayout({ children }) {
                             ))}
                         </div>
                     </a>
+                    <Link href={`${process.env.BASE_URL}/auth`}>
+                        <div className={classes.person}>
+                            <div className={classes.icon}></div>
+                            <div className="text">
+                                Войти
+                        </div>
+                        </div>
+                    </Link>
                 </div>
             </nav>
             <main className={classes.main}>
