@@ -1,153 +1,153 @@
 {
-    "users": [
-        {
-            "id": "test_id1",
-            "login": "user_test",
-            "phone": "+7-932-255-68-93",
-            "name": "Test User",
-            "password": "test_password"
-        },
-        {
-            "id": "test_id2",
-            "login": "user_test2",
-            "phone": "+7-932-277-58-55",
-            "name": "Test UserSecond",
-            "password": "test_password2"
-        }
-    ],
-    "categories": [
-        {
-            "id": 1,
-            "name": "Доставка еды",
-            "img": "food.png"
-        },
-        {
-            "id": 2,
-            "name": "Отели",
-            "img": "hotels.png"
-        },
-        {
-            "id": 3,
-            "name": "Рестораны",
-            "img": "restoraunt.png"
-        },
-        {
-            "id": 4,
-            "name": "Клубы",
-            "img": "club.png"
-        },
-        {
-            "id": 5,
-            "name": "Базы отдыха",
-            "img": "restbase.png"
-        },
-        {
-            "id": 6,
-            "name": "Сауны",
-            "img": "sauna.png"
-        },
-        {
-            "id": 7,
-            "name": "Фитнес-центры",
-            "img": "fitness.png"
-        },
-        {
-            "id": 8,
-            "name": "Детские комнаты",
-            "img": "kidsroom.png"
-        },
-        {
-            "id": 9,
-            "name": "Банкетные залы",
-            "img": "banket.png"
-        },
-        {
-            "id": 10,
-            "name": "Полезные паблики",
-            "img": "publics.png"
-        }
-    ],
-    "places": [
-        {
-            "id": 1,
-            "category_id": 5,
-            "name": "База отдыха BigHouse",
-            "location": "Югорский тракт, 68",
-            "services": "Места для сидения, Обслуживание посетителей за столиками",
-            "description": null
-        },
-        {
-            "id": 2,
-            "category_id": 10,
-            "name": "О Сургут",
-            "location": "https://osurgut.com",
-            "services": null,
-            "description": "Сайт для города"
-        },
-        {
-            "id": 3,
-            "category_id": 2,
-            "name": "Апартаменты в центре рядом с ТЦ Вершина",
-            "location": "37/1 улица 30 лет Победы",
-            "services": "Вид на город, Кухня, Апартаменты целиком",
-            "description": null
-        },
-        {
-            "id": 4,
-            "category_id": 3,
-            "name": "La Storia",
-            "location": "ул. Энтузиастов, 44",
-            "services": "Кофе с собой, оплата картой, еда навынос, Wi-Fi, доставка еды.",
-            "description": null
-        },
-        {
-            "id": 5,
-            "category_id": 3,
-            "name": "People's",
-            "location": "ул. Островского, 14/1",
-            "services": "Летняя веранда, доставка еды, оплата картой, бизнес-ланч, проектор, завтрак, Предзаказ онлайн, еда навынос, Wi-Fi, спортивные трансляции, кофе с собой.",
-            "description": null
-        },
-        {
-            "id": 6,
-            "category_id": 3,
-            "name": "Mishka Bar",
-            "location": "просп. Мира, 26",
-            "services": "Летняя веранда, доставка еды, оплата картой, бизнес-ланч, проектор, завтрак, Предзаказ онлайн, еда навынос, Wi-Fi, спортивные трансляции, кофе с собой.",
-            "description": null
-        },
-        {
-            "id": 7,
-            "category_id": 3,
-            "name": "Перчини",
-            "location": "просп. Ленина, 17 (этаж 1)",
-            "services": "Летняя веранда, доставка еды, оплата картой, бизнес-ланч, проектор, завтрак, Предзаказ онлайн, еда навынос, Wi-Fi, спортивные трансляции, кофе с собой.",
-            "description": null
-        },
-        {
-            "id": 8,
-            "category_id": 5,
-            "name": "База отдыха GoodRest",
-            "location": "Остовкого 45",
-            "services": "Летняя веранда, доставка еды, оплата картой.",
-            "description": null
-        },
-        {
-            "id": 9,
-            "category_id": 5,
-            "name": "База отдыха GoodRest",
-            "location": "Остовкого 45",
-            "services": "Летняя веранда, доставка еды, оплата картой.",
-            "description": null
-        },
-        {
-            "id": 10,
-            "category_id": 5,
-            "name": "CoolPool",
-            "location": "За городом",
-            "services": "Летняя веранда, доставка еды, оплата картой.",
-            "description": null
-        }
+  "users": [
+      {
+          "id": "test_id1",
+          "login": "user_test",
+          "phone": "+7-932-255-68-93",
+          "name": "Test User",
+          "password": "test_password"
+      },
+      {
+          "id": "test_id2",
+          "login": "user_test2",
+          "phone": "+7-932-277-58-55",
+          "name": "Test UserSecond",
+          "password": "test_password2"
+      }
+  ],
+  "categories": [
+      {
+          "id": 1,
+          "name": "Доставка еды",
+          "img": "food.png"
+      },
+      {
+          "id": 2,
+          "name": "Отели",
+          "img": "hotels.png"
+      },
+      {
+          "id": 3,
+          "name": "Рестораны",
+          "img": "restoraunt.png"
+      },
+      {
+          "id": 4,
+          "name": "Клубы",
+          "img": "club.png"
+      },
+      {
+          "id": 5,
+          "name": "Базы отдыха",
+          "img": "restbase.png"
+      },
+      {
+          "id": 6,
+          "name": "Сауны",
+          "img": "sauna.png"
+      },
+      {
+          "id": 7,
+          "name": "Фитнес-центры",
+          "img": "fitness.png"
+      },
+      {
+          "id": 8,
+          "name": "Детские комнаты",
+          "img": "kidsroom.png"
+      },
+      {
+          "id": 9,
+          "name": "Банкетные залы",
+          "img": "banket.png"
+      },
+      {
+          "id": 10,
+          "name": "Полезные паблики",
+          "img": "publics.png"
+      }
+  ],
+  "places": [
+      {
+          "id": 1,
+          "category_id": 5,
+          "name": "База отдыха BigHouse",
+          "location": "Югорский тракт, 68",
+          "services": "Места для сидения, Обслуживание посетителей за столиками",
+          "description": null
+      },
+      {
+          "id": 2,
+          "category_id": 10,
+          "name": "О Сургут",
+          "location": "https://osurgut.com",
+          "services": null,
+          "description": "Сайт для города"
+      },
+      {
+          "id": 3,
+          "category_id": 2,
+          "name": "Апартаменты в центре рядом с ТЦ Вершина",
+          "location": "37/1 улица 30 лет Победы",
+          "services": "Вид на город, Кухня, Апартаменты целиком",
+          "description": null
+      },
+      {
+          "id": 4,
+          "category_id": 3,
+          "name": "La Storia",
+          "location": "ул. Энтузиастов, 44",
+          "services": "Кофе с собой, оплата картой, еда навынос, Wi-Fi, доставка еды.",
+          "description": null
+      },
+      {
+          "id": 5,
+          "category_id": 3,
+          "name": "People's",
+          "location": "ул. Островского, 14/1",
+          "services": "Летняя веранда, доставка еды, оплата картой, бизнес-ланч, проектор, завтрак, Предзаказ онлайн, еда навынос, Wi-Fi, спортивные трансляции, кофе с собой.",
+          "description": null
+      },
+      {
+          "id": 6,
+          "category_id": 3,
+          "name": "Mishka Bar",
+          "location": "просп. Мира, 26",
+          "services": "Летняя веранда, доставка еды, оплата картой, бизнес-ланч, проектор, завтрак, Предзаказ онлайн, еда навынос, Wi-Fi, спортивные трансляции, кофе с собой.",
+          "description": null
+      },
+      {
+          "id": 7,
+          "category_id": 3,
+          "name": "Перчини",
+          "location": "просп. Ленина, 17 (этаж 1)",
+          "services": "Летняя веранда, доставка еды, оплата картой, бизнес-ланч, проектор, завтрак, Предзаказ онлайн, еда навынос, Wi-Fi, спортивные трансляции, кофе с собой.",
+          "description": null
+      },
+      {
+          "id": 8,
+          "category_id": 5,
+          "name": "База отдыха GoodRest",
+          "location": "Остовкого 45",
+          "services": "Летняя веранда, доставка еды, оплата картой.",
+          "description": null
+      },
+      {
+          "id": 9,
+          "category_id": 5,
+          "name": "База отдыха GoodRest",
+          "location": "Остовкого 45",
+          "services": "Летняя веранда, доставка еды, оплата картой.",
+          "description": null
+      },
+      {
+          "id": 10,
+          "category_id": 5,
+          "name": "CoolPool",
+          "location": "За городом",
+          "services": "Летняя веранда, доставка еды, оплата картой.",
+          "description": null
+      }
 
-    ]
+  ]
 }

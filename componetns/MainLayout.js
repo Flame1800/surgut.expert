@@ -5,11 +5,14 @@ import React from 'react'
 
 export default function MainLayout({ children }) {
     const [categories, setCategories] = React.useState([])
-    React.useEffect(async () => {
-        const reqCategories = await fetch(`${process.env.API_URL}/categories`);
-        const categoriesData = await reqCategories.json()
-
-        setCategories(categoriesData);
+    React.useEffect(() => {
+        const getData = async () => {
+            const reqCategories = await fetch(`${process.env.API_URL}/categories`);
+            const categoriesData = await reqCategories.json()
+    
+            setCategories(categoriesData);
+        }
+        getData();
     }, [])
 
     return (
