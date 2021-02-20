@@ -5,6 +5,9 @@ import Rating from 'react-rating'
 import Image from 'next/image'
 
 export default function Place({ place }) {
+
+    
+    
     const responsive = {
         0: { items: 1 },
         568: { items: 2 },

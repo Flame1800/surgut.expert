@@ -6,7 +6,7 @@ const handler = nextConnect()
   // Get method
   .get(async (req, res) => {
 
-    const places = await models.places.findAll({ raw: true });
+    const places = await models.Place.findAll({ raw: true });
 
     res.statusCode = 200;
     res.json({

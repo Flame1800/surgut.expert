@@ -13,7 +13,7 @@ const handler = nextConnect()
       body,
     } = req;
 
-    const users = await models.users.findAll({ raw: true });
+    const users = await models.user.findAll({ raw: true });
 
     res.statusCode = 200;
     res.json({

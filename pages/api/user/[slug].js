@@ -8,20 +8,20 @@ const handler = nextConnect()
     } = req;
     const { slug } = req.query;
     const userId = slug;
-    const user = await models.users.findOne({
+    const user = await models.User.findOne({
       where: {
         id: userId,
       },
-      include: [
-        {
-          model: models.posts,
-          as: 'posts',
-        },
-        {
-          model: models.jobs,
-          as: 'jobs',
-        },
-      ],
+      // include: [
+      //   {
+      //     model: models.posts,
+      //     as: 'posts',
+      //   },
+      //   {
+      //     model: models.jobs,
+      //     as: 'jobs',
+      //   },
+      // ],
     });
     res.statusCode = 200;
     return res.json({ status: 'success', data: user });
