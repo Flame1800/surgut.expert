@@ -8,25 +8,62 @@
 }
 
 .home .header {
-    background-image: url('../public/img/bg2.png');
+    background: linear-gradient(-273.33deg, #60D9FF 1.06%, rgba(174, 30, 198, 0.533281) 49.81%, rgba(255, 183, 183, 0.78) 101.6%);
     background-size: cover;
     width: 100%;
     min-height: 715px;
     background-repeat: no-repeat;
+    align-items: center;
     display: flex;
     justify-content: center;
     user-select: none;
 
+    .decorations {
+        position: absolute;
+        width: 100%;
+        height: inherit;
+
+        .fragment {
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: absolute;
+        }
+    }
+
+    .people {
+        margin-top: 150px;
+        margin-right: 40px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url('../public/img/3d-human.png');
+        height: 450px;
+        width: 450px;
+    }
+
+
     .content {
         max-width: 70%;
-        width: 100%;
         padding-top: 100px;
+
 
         .title {
             font-size: 100px;
             color: #fff;
             font-weight: 500;
             margin-bottom: 20px;
+            position: relative;
+
+            &:after {
+                content: '';
+                background-image: url('../public/img/diamond-3d.png');
+                width: 15%;
+                height: 80%;
+                background-repeat: no-repeat;
+                background-size: contain;
+                position: absolute;
+                top: -30px;
+                right: 20px;
+            }
         }
 
         .block {
@@ -55,6 +92,19 @@
             flex-wrap: wrap;
             margin-left: -10px;
             margin-bottom: 20px;
+            position: relative;
+
+            &:after {
+                content: "";
+                background-image: url('../public/img/doodle-3d.png');
+                width: 22%;
+                height: 90%;
+                background-repeat: no-repeat;
+                background-size: contain;
+                position: absolute;
+                top: -90px;
+                left: -100px;
+            }
 
          
             .item {
@@ -188,6 +238,51 @@
     padding-top: 50px;
     background: rgba( 255, 255, 255, 0.40 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+
+    .decorations {
+        position: absolute;
+        width: 100%;
+        height: inherit;
+        z-index: 900;
+        pointer-events: none;
+
+        .fragment {
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: absolute;
+        }
+
+        .spring1 {
+            background-image: url('../public/img/fragment1-3d.png');
+            top: 30px;
+            width: 200px;
+            height: 200px;
+        }
+
+        .spring2 {
+            background-image: url('../public/img/fragment2-3d.png');
+            top: 600px;
+            right: 30px;
+            width: 350px;
+            height: 350px;
+        }
+
+        .coubs {
+            background-image: url('../public/img/coubs-3d.png');
+            top: 0px;
+            right: 50px;
+            width: 300px;
+            height: 300px;
+        }
+
+        .switch {
+            background-image: url('../public/img/switch-3d.png');
+            top: 270px;
+            left: 160px;
+            width: 200px;
+            height: 200px;
+        }
+    }
 
     .container-items {
         max-width: 70%;

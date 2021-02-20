@@ -1,4 +1,3 @@
-import MainLayout from '../../componetns/MainLayout.js'
 import Head from 'next/head'
 import AliceCarousel from 'react-alice-carousel'
 import Rating from 'react-rating'
@@ -50,7 +49,7 @@ export default function Place({ place }) {
     )
 
     return (
-        <MainLayout>
+        <>
             <Head>
                 <title>Surgut Expert</title>
                 <link rel="icon" href="/favicon.ico" />
@@ -108,7 +107,7 @@ export default function Place({ place }) {
                     </div>
                 </div>
             </div>
-        </MainLayout>
+        </>
     )
 }
 

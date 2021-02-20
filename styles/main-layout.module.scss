@@ -97,15 +97,15 @@
     }
     display: none;
     position: absolute;
-    background: rgba(255, 255, 255, 0.849);
-    top: 36px;
-    right: 0px;
+    background: hsl(0deg 0% 100%);
+    top: 32px;
+    right: 0;
     flex-wrap: wrap;
     min-width: 500px;
     max-height: 500px;
     padding: 10px;
-    transition: 0.5s;
-
+    transition: .5s;
+    border: 1px solid;
     div {
         padding: 10px;
         cursor: pointer;

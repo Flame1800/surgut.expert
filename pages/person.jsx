@@ -1,10 +1,8 @@
-import MainLayout from '../componetns/MainLayout.js'
 import React from 'react'
 
 export default function Home() {
 
     return (
-        <MainLayout title='Surgut.expert'>
             <div className="person">
                 <div className="content">
                     <div className="head">
@@ -52,6 +50,5 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-        </MainLayout>
     )
 }
