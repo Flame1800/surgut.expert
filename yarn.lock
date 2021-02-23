@@ -1078,6 +1078,18 @@
   "resolved" "https://registry.npmjs.org/@opentelemetry/context-base/-/context-base-0.14.0.tgz"
   "version" "0.14.0"
 
+"@prisma/client@^2.17.0":
+  "integrity" "sha512-tzsBxtx9J1epOGCiBeXur1tEz81UIdWg2G/HpDmflXKcv/MJb+KCWSKSsEW49eXcvVwRgxNyxLoCO6CwvjQKcg=="
+  "resolved" "https://registry.npmjs.org/@prisma/client/-/client-2.17.0.tgz"
+  "version" "2.17.0"
+  dependencies:
+    "@prisma/engines-version" "2.17.0-35.3c463ebd78b1d21d8fdacdd27899e280cf686223"
+
+"@prisma/engines-version@2.17.0-35.3c463ebd78b1d21d8fdacdd27899e280cf686223":
+  "integrity" "sha512-9idv5blqPUlvUPVT48eVi3T0RS/NBklUcjrla3jWyV8AYfB2BdaG/Zci7H5ajyYLnfZZHG9tBpP0LcveQCFH8A=="
+  "resolved" "https://registry.npmjs.org/@prisma/engines-version/-/engines-version-2.17.0-35.3c463ebd78b1d21d8fdacdd27899e280cf686223.tgz"
+  "version" "2.17.0-35.3c463ebd78b1d21d8fdacdd27899e280cf686223"
+
 "@types/geojson@^1.0.0", "@types/geojson@^7946.0.0 || ^1.0.0":
   "integrity" "sha512-Xqg/lIZMrUd0VRmSRbCAewtwGZiAk3mEUDvV4op1tGl+LvyPcb/MIOSxTl9z+9+J+R4/vpjiCAT4xeKzH9ji1w=="
   "resolved" "https://registry.npmjs.org/@types/geojson/-/geojson-1.0.6.tgz"
@@ -7962,8 +7974,6 @@
   "resolved" "https://registry.npmjs.org/terraformer/-/terraformer-1.0.12.tgz"
   "version" "1.0.12"
   dependencies:
-    "@types/geojson" "^7946.0.0 || ^1.0.0"
-  optionalDependencies:
     "@types/geojson" "^7946.0.0 || ^1.0.0"
 
 "terser-webpack-plugin@^1.4.3":
