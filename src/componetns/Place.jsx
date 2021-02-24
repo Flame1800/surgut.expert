@@ -33,7 +33,9 @@ export default function Place({ place }) {
     return (
         <div className="item-place" key={place.id}>
             <div className='container'>
-                <div className="img"></div>
+                <div className="img-cont">
+                    <div className="img"></div>
+                </div>
                 <div className="main">
                     <Link href={`${process.env.BASE_URL}/places/[id]`} as={`${process.env.BASE_URL}/places/${place.id}`}>
                         <div className="sub-container">

@@ -8,7 +8,11 @@
 }
 
 .home .header {
+<<<<<<< HEAD
     background: linear-gradient(-273.33deg, #60D9FF 1.06%, rgba(174, 30, 198, 0.533281) 49.81%, rgba(255, 183, 183, 0.78) 101.6%);
+=======
+    background: url('../public/img/gradient.png');
+>>>>>>> d474bcc751207fbaf57a656757f8ec0a7d1fe455
     background-size: cover;
     width: 100%;
     min-height: 715px;
@@ -48,10 +52,19 @@
 
         .title {
             font-size: 100px;
-            color: #fff;
+            color: #293D6F;
             font-weight: 500;
             margin-bottom: 20px;
             position: relative;
+<<<<<<< HEAD
+=======
+            display: flex;
+
+            .colors-title {
+                margin-left: 20px;
+                color: #467AFF;
+            }
+>>>>>>> d474bcc751207fbaf57a656757f8ec0a7d1fe455
 
             &:after {
                 content: '';
@@ -74,14 +87,14 @@
 
         .sub-title {
             font-size: 20px;
-            color: #fff;
+            color: #293D6F;
             font-weight: 400;
             margin-right: 50px;
         }
 
         .weather {
             font-size: 24px;
-            color: #fff;
+            color: #293D6F;
             font-weight: 500;
         }
 
@@ -131,14 +144,6 @@
                     background: rgba(255, 255, 255, 0.199);
                     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
                     backdrop-filter: blur( 5px );
-
-                    .name {
-                        color: #fff;
-                    }
-
-                    .icon {
-                        filter: invert(1);
-                    }
                 }
             }
 
@@ -234,11 +239,56 @@
 
 .home .place-items {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    padding-top: 50px;
+    align-items: center;
+    padding-top: 30px;
     background: rgba( 255, 255, 255, 0.40 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
 
+<<<<<<< HEAD
+=======
+    .head {
+        max-width: 70%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 50px;
+        padding-bottom: 10px;
+        font-weight: bold;
+        color: #202020;
+        font-size: 30px;
+        border-bottom: 3px solid #999;
+
+        .buttons {
+            display: flex;
+
+            .btn-menu {
+                width: 30px;
+                height: 30px;
+                background-image: url('../public/img/menu.png');
+                background-repeat: no-repeat;
+                background-size: contain;
+                margin-right: 20px;
+                cursor: pointer;
+                opacity: 0.5;
+            }
+
+            
+            .btn-grid {
+                width: 30px;
+                height: 30px;
+                background-image: url('../public/img/grid.png');
+                background-repeat: no-repeat;
+                background-size: contain;
+                cursor: pointer;
+                opacity: 0.5;
+            }
+
+        }
+    }
+
+>>>>>>> d474bcc751207fbaf57a656757f8ec0a7d1fe455
     .decorations {
         position: absolute;
         width: 100%;

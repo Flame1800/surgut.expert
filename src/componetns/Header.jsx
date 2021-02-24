@@ -2,11 +2,19 @@ import Link from 'next/link'
 import classes from '../../styles/main-layout.module.scss'
 import Head from 'next/head'
 import React from 'react'
+<<<<<<< HEAD
 import { toggleAuth } from '../actions/auth'
 import { connect } from '../store/index'
 
 const mapStateToProps = (state) => ({
     openAuthModal: state.auth.open
+=======
+import { toggleAuth } from '../actions/uiElements'
+import { connect } from '../store/index'
+
+const mapStateToProps = (state) => ({
+    authModal: state.uiElements.authModal
+>>>>>>> d474bcc751207fbaf57a656757f8ec0a7d1fe455
 })
 
 
@@ -25,11 +33,14 @@ function Header(props, { children }) {
         getData();
     }, [])
 
+<<<<<<< HEAD
     const toggleAuthModal = (e) => {
         e.preventDefault();
         console.log(toggleAuth)
     }
 
+=======
+>>>>>>> d474bcc751207fbaf57a656757f8ec0a7d1fe455
     return (
         <>
             <Head>
@@ -50,7 +61,11 @@ function Header(props, { children }) {
                             ))}
                         </div>
                     </a>
+<<<<<<< HEAD
                     <div onClick={(e) => toggleAuthModal(e)} className={classes.person}>
+=======
+                    <div onClick={() => toggleAuth()} className={classes.person}>
+>>>>>>> d474bcc751207fbaf57a656757f8ec0a7d1fe455
                         <div className={classes.icon}></div>
                         <div className="text">
                             Войти

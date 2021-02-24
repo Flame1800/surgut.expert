@@ -17,21 +17,20 @@ export default function Auth() {
                 <div className="form">
                     <Link href={`${process.env.BASE_URL}`}>
                         <div className="back-btn">
-                            <div className='icon'>
+                            <div className='icon'>                                
                             </div>
                         </div>
                     </Link>
+
                     <div className="title">
                         {mode === 'reg' ? 'Регистрация' : 'Вход'}
                     </div>
                     {mode === 'reg' && <input type="text" className="input" placeholder='Логин' />}
                     <input type="phone" className="input" placeholder='Телефон' />
                     <input type="password" className="input" placeholder='Пароль' />
-                    <Link href={`${process.env.BASE_URL}/person`}>
-                        <div className="btn-reg">
-                            {mode === 'reg' ? 'Зарегистрироватся' : 'Войти'}
-                        </div>
-                    </Link>
+                    <div className="btn-reg">
+                        {mode === 'reg' ? 'Зарегистрироватся' : 'Войти'}
+                    </div>
                     {mode === 'reg' ?
                         <div className="btn-mode"
                             onClick={() => setMode('log')} >
