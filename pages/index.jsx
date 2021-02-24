@@ -1,5 +1,4 @@
-import MainLayout from '../componetns/MainLayout.js'
-import Place from '../componetns/Place.jsx'
+import Place from '../src/componetns/Place'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -13,7 +12,6 @@ export default function Home({ places, categories, weather }) {
     return category[0].name
   }
   return (
-    <MainLayout key={Math.random()} title='Surgut.expert'>
       <div className="main-fon-1">
         <div className="home">
           <div className="header">
@@ -31,8 +29,8 @@ export default function Home({ places, categories, weather }) {
               </div>
               <div className="items">
                 {categories.map(item => (
-                  <Link  href='categories/[id]' as={`categories/${item.id}`}>
-                    <div className="item" key={item.id}>
+                  <Link href='categories/[id]' key={item.id} as={`categories/${item.id}`}>
+                    <div className="item">
                       <Image
                         src={`/img/icons-categories/${item.img}`}
                         alt="icon"
@@ -53,16 +51,23 @@ export default function Home({ places, categories, weather }) {
                   <div className="drop-box">
                     <div className="list">
                       {categories.map(item => (
-                      <div key={item.id} className="item">
-                        {item.name}
-                      </div>
-                    ))}
+                        <div key={item.id} className="item">
+                          {item.name}
+                        </div>
+                      ))}
                     </div>
                   </div>}
               </div>
             </div>
+            <div className="people"></div>
           </div>
           <div className="place-items">
+            <div className="decorations">
+              <div className="fragment spring1"></div>
+              <div className="fragment spring2"></div>
+              <div className="fragment switch"></div>
+              <div className="fragment coubs"></div>
+            </div>
             <div className="container-items">
               {places.map((place, id) => {
                 if (id > 29) {
@@ -76,7 +81,6 @@ export default function Home({ places, categories, weather }) {
           </div>
         </div>
       </div>
-    </MainLayout>
   )
 }
 
