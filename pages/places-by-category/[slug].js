@@ -1,13 +1,14 @@
+  
 import Head from 'next/head'
 import Link from 'next/link';
-import MainLayout from '../../componetns/MainLayout.js';
-import Place from '../../componetns/Place.jsx'
+import MainLayout from '../../src/componetns/MainLayout';
+import Place from '../../src/componetns/Place.jsx'
 
 export default function Catalog({ places }) {
     return (
         <MainLayout>
             <Head>
-                <title>Surgut Expert</title>
+                <title>Places -</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className="places">
@@ -37,6 +38,6 @@ export default function Catalog({ places }) {
 Catalog.getInitialProps = async ({ query }) => {
     const responce = await fetch(`${process.env.API_URL}/places`);
     const places = await responce.json();
-    const currPlaces = places.filter(item => item.category_id === Number(query.id));
+    const currPlaces = places.filter(item => item.name === Number(query.slug));
     return { places: currPlaces };
 }

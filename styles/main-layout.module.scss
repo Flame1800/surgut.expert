@@ -5,7 +5,8 @@
     top: 0;
     left: 0;
     right: 0;
-    padding: 10px 40px;
+    padding-left: 40px;
+    height: 60px;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.664);  
@@ -17,7 +18,7 @@
 }
 
 .logo {
-    background: url('../public/img/logo.png');
+    background: url('../public/img/logo.png') no-repeat;
     width: 120px;
     height: 40px;
     background-repeat: no-repeat;
@@ -27,6 +28,7 @@
 
 .navmenu {
     display: flex;
+    align-items: center;
 }
 
 .navmenu a {
@@ -40,6 +42,7 @@
     border-radius: 10px;
     padding: 8px;
     font-size: 16px;
+    height: 40px;
     cursor: pointer;
     position: relative;
 }
@@ -63,6 +66,30 @@
     }
 }
 
+.person {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 20px;
+    padding-left: 20px;
+    border-left: #2f00ff80 3px solid;
+    height: 60px;
+    cursor: pointer;
+    transition: 0.3s;
+
+    .icon {
+        width: 25px;
+        height: 25px;
+        background-image: url('../public/img/user-icon.png');
+        margin-right: 20px;
+    }
+}
+
+.person:hover {
+    background: rgb(102, 156, 255);  
+}
+
+
 
 .listCategories {
     &:hover {
@@ -70,15 +97,15 @@
     }
     display: none;
     position: absolute;
-    background: rgba(255, 255, 255, 0.849);
-    top: 36px;
-    right: 0px;
+    background: hsl(0deg 0% 100%);
+    top: 32px;
+    right: 0;
     flex-wrap: wrap;
     min-width: 500px;
     max-height: 500px;
     padding: 10px;
-    transition: 0.5s;
-
+    transition: .5s;
+    border: 1px solid;
     div {
         padding: 10px;
         cursor: pointer;
