@@ -2,7 +2,8 @@ import Link from 'next/link'
 import classes from '../../styles/main-layout.module.scss'
 import Head from 'next/head'
 import React from 'react'
-import { toggleAuth } from '../actions/uiElements'
+
+import { toggleAuth } from '../actions/auth'
 import { connect } from '../store/index'
 
 const mapStateToProps = (state) => ({
@@ -25,6 +26,11 @@ function Header(props, { children }) {
         getData();
     }, [])
 
+    const toggleAuthModal = (e) => {
+        e.preventDefault();
+        console.log(toggleAuth)
+    }
+
     return (
         <>
             <Head>
@@ -45,7 +51,7 @@ function Header(props, { children }) {
                             ))}
                         </div>
                     </a>
-                    <div onClick={() => toggleAuth()} className={classes.person}>
+                    <div onClick={(e) => toggleAuthModal(e)} className={classes.person}>
                         <div className={classes.icon}></div>
                         <div className="text">
                             Войти
