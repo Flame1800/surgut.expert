@@ -2,10 +2,20 @@ import React from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
 
+import { connect } from '../store/index'
+import { toggleAuth } from '../actions/uiElements'
 
-export default function Auth() {
+const mapStateToProps = (state) => {
+    return { authModal: state.uiElements.authModal }
+}
 
+function Auth(props) {
     const [mode, setMode] = React.useState('reg')
+    const { authModal, toggleAuth } = props
+
+    if (!authModal) {
+        return null
+    }
 
     return (
         <>
@@ -15,22 +25,20 @@ export default function Auth() {
             </Head>
             <div className="auth">
                 <div className="form">
-                    <Link href={`${process.env.BASE_URL}`}>
-                        <div className="back-btn">
-                            <div className='icon'>                                
-                            </div>
+                    <div className="back-btn" onClick={() => toggleAuth()} >
+                        +
                         </div>
-                    </Link>
-
                     <div className="title">
                         {mode === 'reg' ? 'Регистрация' : 'Вход'}
                     </div>
                     {mode === 'reg' && <input type="text" className="input" placeholder='Логин' />}
                     <input type="phone" className="input" placeholder='Телефон' />
                     <input type="password" className="input" placeholder='Пароль' />
-                    <div className="btn-reg">
-                        {mode === 'reg' ? 'Зарегистрироватся' : 'Войти'}
-                    </div>
+                    <Link href={`${process.env.BASE_URL}/person`} >
+                        <div className="btn-reg" onClick={() => toggleAuth()}>
+                            {mode === 'reg' ? 'Зарегистрироватся' : 'Войти'}
+                        </div>
+                    </Link>
                     {mode === 'reg' ?
                         <div className="btn-mode"
                             onClick={() => setMode('log')} >
@@ -47,3 +55,5 @@ export default function Auth() {
         </>
     )
 }
+
+export default connect(mapStateToProps, { toggleAuth })(Auth)
