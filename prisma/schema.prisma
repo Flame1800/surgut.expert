@@ -1,0 +1,107 @@
+datasource db {
+  provider = "mysql"
+  url      = "mysql://root:root@localhost:3306/surgut.expert"
+  //url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  email String @unique
+  phone String @unique
+  username String
+  password String
+  name  String?
+  surname String?
+  role Role @default(USER)
+
+  @@map(name: "users")
+}
+
+model Place {
+  id Int @id @default(autoincrement())
+  title String
+  abb_title String
+  slug String
+  location String
+  operating_mode String
+  description  String
+  tel String?
+  site String?
+  categories Category[]
+  tags Tag[]
+
+  @@map(name: "places")
+}
+
+model Category {
+  id Int @id @default(autoincrement())
+  title String
+  slug String
+  icon String
+  places Place[]
+
+  @@map(name: "categories")
+}
+
+model Tag {
+  id Int @id @default(autoincrement())
+  title String
+  slug String
+  category Category @relation(fields: [categoryId], references: [id])
+  categoryId Int
+  places Place[]
+
+  @@map(name: "tags")
+}
+
+model Feedback {
+  id Int @id @default(autoincrement())
+  feedback String
+  rate Float
+  author User @relation(fields: [authorId], references: [id])
+  authorId Int
+  place Place @relation(fields: [placeId], references: [id])
+  placeId Int
+
+  @@map(name: "feedbacks")
+}
+
+model Like {
+  author User @relation(fields: [authorId], references: [id])
+  authorId Int
+  place Place @relation(fields: [placeId], references: [id])
+  placeId Int
+
+  @@id([authorId, placeId])
+  @@map(name: "likes")
+}
+
+model Party {
+  id Int @id @default(autoincrement())
+  title String
+  description String
+  date DateTime
+  place Place @relation(fields: [placeId], references: [id])
+  placeId Int
+
+  @@map(name: "parties")  
+}
+
+model Picture {
+  id Int @id @default(autoincrement())
+  href String
+  description String?
+  place Place @relation(fields: [placeId], references: [id])
+  placeId Int 
+
+  @@map(name: "picturies") 
+}
