@@ -3,6 +3,10 @@ import Header from './Header'
 import React from 'react'
 import Auth from './Auth'
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+import AddPlace from './AddPlace'
+>>>>>>> d474bcc751207fbaf57a656757f8ec0a7d1fe455
 =======
 import AddPlace from './AddPlace'
 >>>>>>> d474bcc751207fbaf57a656757f8ec0a7d1fe455
@@ -13,6 +17,10 @@ export default function MainLayout({ children }) {
             <Header />
             <Auth />
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+            <AddPlace />
+>>>>>>> d474bcc751207fbaf57a656757f8ec0a7d1fe455
 =======
             <AddPlace />
 >>>>>>> d474bcc751207fbaf57a656757f8ec0a7d1fe455

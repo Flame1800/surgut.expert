@@ -3,17 +3,23 @@ import classes from '../../styles/main-layout.module.scss'
 import Head from 'next/head'
 import React from 'react'
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { toggleAuth } from '../actions/auth'
 import { connect } from '../store/index'
 
 const mapStateToProps = (state) => ({
     openAuthModal: state.auth.open
 =======
+=======
+>>>>>>> d474bcc751207fbaf57a656757f8ec0a7d1fe455
 import { toggleAuth } from '../actions/uiElements'
 import { connect } from '../store/index'
 
 const mapStateToProps = (state) => ({
     authModal: state.uiElements.authModal
+<<<<<<< HEAD
+>>>>>>> d474bcc751207fbaf57a656757f8ec0a7d1fe455
+=======
 >>>>>>> d474bcc751207fbaf57a656757f8ec0a7d1fe455
 })
 
@@ -34,11 +40,14 @@ function Header(props, { children }) {
     }, [])
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     const toggleAuthModal = (e) => {
         e.preventDefault();
         console.log(toggleAuth)
     }
 
+=======
+>>>>>>> d474bcc751207fbaf57a656757f8ec0a7d1fe455
 =======
 >>>>>>> d474bcc751207fbaf57a656757f8ec0a7d1fe455
     return (
@@ -62,7 +71,11 @@ function Header(props, { children }) {
                         </div>
                     </a>
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <div onClick={(e) => toggleAuthModal(e)} className={classes.person}>
+=======
+                    <div onClick={() => toggleAuth()} className={classes.person}>
+>>>>>>> d474bcc751207fbaf57a656757f8ec0a7d1fe455
 =======
                     <div onClick={() => toggleAuth()} className={classes.person}>
 >>>>>>> d474bcc751207fbaf57a656757f8ec0a7d1fe455

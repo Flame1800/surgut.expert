@@ -4,6 +4,7 @@ import Head from 'next/head'
 
 import { connect } from '../store/index'
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { toggleAuth } from '../actions/auth'
 
 const mapStateToProps = (state) => {
@@ -60,6 +61,8 @@ function Auth(props) {
     }
 
 =======
+=======
+>>>>>>> d474bcc751207fbaf57a656757f8ec0a7d1fe455
 import { toggleAuth } from '../actions/uiElements'
 
 const mapStateToProps = (state) => {
@@ -111,6 +114,9 @@ function Auth(props) {
             </div>
         </>
     )
+<<<<<<< HEAD
+>>>>>>> d474bcc751207fbaf57a656757f8ec0a7d1fe455
+=======
 >>>>>>> d474bcc751207fbaf57a656757f8ec0a7d1fe455
 }
 

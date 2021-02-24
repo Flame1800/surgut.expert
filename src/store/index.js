@@ -15,7 +15,11 @@ const wrapActions = (actions, dispatch) => {
   const result = {}
   for (const key in actions) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     result[key] = (...args) => actions[key](...args)(dispatch)
+=======
+    result[key] = (...args) => dispatch(actions[key](...args))
+>>>>>>> d474bcc751207fbaf57a656757f8ec0a7d1fe455
 =======
     result[key] = (...args) => dispatch(actions[key](...args))
 >>>>>>> d474bcc751207fbaf57a656757f8ec0a7d1fe455
@@ -27,7 +31,10 @@ export const connect = (mapStateToProps, actions) => (Component) => (props) => (
   <Context.Consumer>
     {({ state, dispatch }) => {
 <<<<<<< HEAD
+<<<<<<< HEAD
         console.log(actions)
+=======
+>>>>>>> d474bcc751207fbaf57a656757f8ec0a7d1fe455
 =======
 >>>>>>> d474bcc751207fbaf57a656757f8ec0a7d1fe455
         return (
