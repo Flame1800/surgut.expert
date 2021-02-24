@@ -2,25 +2,12 @@ import Link from 'next/link'
 import classes from '../../styles/main-layout.module.scss'
 import Head from 'next/head'
 import React from 'react'
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> main
+
 import { toggleAuth } from '../actions/auth'
 import { connect } from '../store/index'
 
 const mapStateToProps = (state) => ({
-    openAuthModal: state.auth.open
-<<<<<<< HEAD
-=======
-=======
-import { toggleAuth } from '../actions/uiElements'
-import { connect } from '../store/index'
-
-const mapStateToProps = (state) => ({
     authModal: state.uiElements.authModal
->>>>>>> d474bcc751207fbaf57a656757f8ec0a7d1fe455
->>>>>>> main
 })
 
 
@@ -39,20 +26,11 @@ function Header(props, { children }) {
         getData();
     }, [])
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> main
     const toggleAuthModal = (e) => {
         e.preventDefault();
         console.log(toggleAuth)
     }
 
-<<<<<<< HEAD
-=======
-=======
->>>>>>> d474bcc751207fbaf57a656757f8ec0a7d1fe455
->>>>>>> main
     return (
         <>
             <Head>
@@ -73,15 +51,7 @@ function Header(props, { children }) {
                             ))}
                         </div>
                     </a>
-<<<<<<< HEAD
                     <div onClick={(e) => toggleAuthModal(e)} className={classes.person}>
-=======
-<<<<<<< HEAD
-                    <div onClick={(e) => toggleAuthModal(e)} className={classes.person}>
-=======
-                    <div onClick={() => toggleAuth()} className={classes.person}>
->>>>>>> d474bcc751207fbaf57a656757f8ec0a7d1fe455
->>>>>>> main
                         <div className={classes.icon}></div>
                         <div className="text">
                             Войти

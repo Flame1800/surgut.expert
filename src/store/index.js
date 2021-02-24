@@ -14,15 +14,7 @@ export const Provider = ({ initialState, reducer, children }) => {
 const wrapActions = (actions, dispatch) => {
   const result = {}
   for (const key in actions) {
-<<<<<<< HEAD
-    result[key] = (...args) => actions[key](...args)(dispatch)
-=======
-<<<<<<< HEAD
-    result[key] = (...args) => actions[key](...args)(dispatch)
-=======
     result[key] = (...args) => dispatch(actions[key](...args))
->>>>>>> d474bcc751207fbaf57a656757f8ec0a7d1fe455
->>>>>>> main
   }
   return result
 }
@@ -30,14 +22,6 @@ const wrapActions = (actions, dispatch) => {
 export const connect = (mapStateToProps, actions) => (Component) => (props) => (
   <Context.Consumer>
     {({ state, dispatch }) => {
-<<<<<<< HEAD
-        console.log(actions)
-=======
-<<<<<<< HEAD
-        console.log(actions)
-=======
->>>>>>> d474bcc751207fbaf57a656757f8ec0a7d1fe455
->>>>>>> main
         return (
             <Component
               {...props}

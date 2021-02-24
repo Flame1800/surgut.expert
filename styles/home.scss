@@ -8,15 +8,8 @@
 }
 
 .home .header {
-<<<<<<< HEAD
-    background: linear-gradient(-273.33deg, #60D9FF 1.06%, rgba(174, 30, 198, 0.533281) 49.81%, rgba(255, 183, 183, 0.78) 101.6%);
-=======
-<<<<<<< HEAD
-    background: linear-gradient(-273.33deg, #60D9FF 1.06%, rgba(174, 30, 198, 0.533281) 49.81%, rgba(255, 183, 183, 0.78) 101.6%);
-=======
+    // background: linear-gradient(-273.33deg, #60D9FF 1.06%, rgba(174, 30, 198, 0.533281) 49.81%, rgba(255, 183, 183, 0.78) 101.6%);
     background: url('../public/img/gradient.png');
->>>>>>> d474bcc751207fbaf57a656757f8ec0a7d1fe455
->>>>>>> main
     background-size: cover;
     width: 100%;
     min-height: 715px;
@@ -60,18 +53,12 @@
             font-weight: 500;
             margin-bottom: 20px;
             position: relative;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
             display: flex;
 
             .colors-title {
                 margin-left: 20px;
                 color: #467AFF;
             }
->>>>>>> d474bcc751207fbaf57a656757f8ec0a7d1fe455
->>>>>>> main
 
             &:after {
                 content: '';
@@ -253,10 +240,6 @@
     background: rgba( 255, 255, 255, 0.40 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
     .head {
         max-width: 70%;
         width: 100%;
@@ -297,8 +280,6 @@
         }
     }
 
->>>>>>> d474bcc751207fbaf57a656757f8ec0a7d1fe455
->>>>>>> main
     .decorations {
         position: absolute;
         width: 100%;

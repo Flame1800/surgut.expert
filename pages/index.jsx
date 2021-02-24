@@ -16,7 +16,7 @@ export default function Home({ places, categories, weather }) {
         <div className="home">
           <div className="header">
             <div className="content">
-              <div className="title">Все о Сургуте</div>
+              <div className="title">Все о <div className="colors-title">Сургуте</div></div>
               <div className="block">
                 <div className="sub-title">
                   Добро пожаловать!
@@ -29,7 +29,7 @@ export default function Home({ places, categories, weather }) {
               </div>
               <div className="items">
                 {categories.map(item => (
-                  <Link href='categories/[id]' key={item.id} as={`categories/${item.id}`}>
+                  <Link href='places-by-category/[slug]' key={item.name} as={`places-by-category/${item.name}`}>
                     <div className="item">
                       <Image
                         src={`/img/icons-categories/${item.img}`}
@@ -68,6 +68,13 @@ export default function Home({ places, categories, weather }) {
               <div className="fragment switch"></div>
               <div className="fragment coubs"></div>
             </div>
+            <div className="head">
+              <div className="title">Интересные места Сургута</div>
+              <div className="buttons">
+                  <div className="btn-menu"></div>
+                  <div className="btn-grid"></div>
+              </div>
+            </div>
             <div className="container-items">
               {places.map((place, id) => {
                 if (id > 29) {
@@ -99,9 +106,6 @@ export async function getStaticProps(context) {
   const shuffle = (array) => {
     array.sort(() => Math.random() - 0.5)
   }
-
-
-
   shuffle(places);
   return {
     props: {

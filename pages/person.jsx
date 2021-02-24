@@ -1,6 +1,14 @@
 import React from 'react'
 
-export default function Home() {
+import { connect } from '../src/store/index'
+import { toggleAddPlace } from '../src/actions/uiElements'
+
+const mapStateToProps = (state) => {
+    return { authModal: state.uiElements.authModal }
+}
+
+function Home(props) {
+    const { toggleAddPlace } = props
 
     return (
             <div className="person">
@@ -14,7 +22,7 @@ export default function Home() {
                                 <div className="phone">+7-932-255-68-93</div>
                             </div>
                         </div>
-                        <div className="btn-add">
+                        <div className="btn-add" onClick={() => toggleAddPlace()}>
                             Добавить место
                         </div>
                     </div>
@@ -52,3 +60,5 @@ export default function Home() {
             </div>
     )
 }
+
+export default connect(mapStateToProps, { toggleAddPlace })(Home)
