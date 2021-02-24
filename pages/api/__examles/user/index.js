@@ -1,5 +1,4 @@
 import nextConnect from 'next-connect';
-const models = require('../../../db/models/index');
 import middleware from '../../../middleware/auth';
 
 const handler = nextConnect()
@@ -13,7 +12,7 @@ const handler = nextConnect()
       body,
     } = req;
 
-    const users = await models.users.findAll({ raw: true });
+    const users = await models.user.findAll({ raw: true });
 
     res.statusCode = 200;
     res.json({
