@@ -4,6 +4,7 @@ import React from 'react'
 import Auth from './Auth'
 import AddPlace from './AddPlace'
 
+
 export default function MainLayout({ children }) {
     return (
         <>
