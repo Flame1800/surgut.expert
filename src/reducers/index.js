@@ -1,8 +1,8 @@
 import { combineReducers } from '../store'
 
 
-import { auth } from './auth'
+import { uiElements } from './uiElements'
 
 export default combineReducers({
-    auth
+    uiElements
 })

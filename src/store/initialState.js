@@ -1,6 +1,9 @@
 const initialState = {
+    uiElements: {
+        authModal: false,
+        addPlaceModal: false,
+    },
     auth: {
-        open: false,
         isAuthenticated: false,
         user: {}
     },
