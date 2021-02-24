@@ -3,23 +3,27 @@ import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient();
 
-
 const handler = nextConnect()
   
-  // GET /api/places/:id Место по id
+  // GET /api/tags Все тэги
   .get(async (req, res) => {
-    const place_id = Number(req.query.id);
-    const places = await prisma.place.findUnique({
-        where: {
-            id: place_id
-        }
-    })
-
     res.statusCode = 200;
+    const tags = await prisma.tag.findMany()
     res.json({
         status: 'success',
-        data: places,
+        data: tags,
     })
   })
- 
+
+  //POST /api/tags
+  .post(async (req, res) => {
+
+    const result = await prisma.tag.create({
+      data: req.body
+    })
+
+    res.json({
+        status: 'success'
+    })
+})
 export default handler;

@@ -3,29 +3,23 @@ import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient();
 
-
 const handler = nextConnect()
   
-  //GET api/places/category/:id Все места определенной категории
+  // GET api/tags/category/:id - все тэги категории с id
   .get(async (req, res) => {
     const category_id = Number(req.query.id);
-        
-    const places = await prisma.place.findMany({
+    const tags = await prisma.tag.findMany({
       where: {
-        categories: {
-          every: {
-            id: category_id
-          }
+        category: {
+          id: category_id
         }
-      },
+      }
     })
-    
     res.statusCode = 200;
     res.json({
         status: 'success',
-        data: places
+        data: tags,
     })
   })
-
 
 export default handler;

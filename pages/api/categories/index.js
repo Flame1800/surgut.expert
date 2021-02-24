@@ -5,19 +5,21 @@ const prisma = new PrismaClient();
 
 const handler = nextConnect()
   
-  // GET /api/places Все места
+  // GET /api/categories
   .get(async (req, res) => {
     res.statusCode = 200;
-    const places = await prisma.place.findMany()
+    const categories = await prisma.category.findMany()
     res.json({
         status: 'success',
-        data: places,
+        data: categories,
     })
   })
 
-  // POST /api/places Создать новое место
+
+  // POST /api/categories
   .post(async (req, res) => {
-    const result = await prisma.place.create({
+
+    const result = await prisma.category.create({
       data: req.body
     })
     res.statusCode = 200;

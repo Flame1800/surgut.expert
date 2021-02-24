@@ -6,15 +6,15 @@ const prisma = new PrismaClient();
 
 const handler = nextConnect()
   
-  //GET api/places/category/:id Все места определенной категории
+  //GET api/places/category/:id Все места с определенным тэгом
   .get(async (req, res) => {
-    const category_id = Number(req.query.id);
+    const tag_id = Number(req.query.id);
         
     const places = await prisma.place.findMany({
       where: {
-        categories: {
-          every: {
-            id: category_id
+        tags: {
+          some: {
+            id: tag_id
           }
         }
       },
