@@ -1,6 +1,6 @@
 datasource db {
   provider = "mysql"
-  url      = "mysql://root@localhost:3306/surgut.expert"
+  url      = "mysql://root:root@localhost:3306/surgut.expert"
   //url      = env("DATABASE_URL")
 }
 
@@ -22,6 +22,8 @@ model User {
   name  String?
   surname String?
   role Role @default(USER)
+  likes Like[]
+  feedbacks Feedback[]
 
   @@map(name: "users")
 }
@@ -38,7 +40,11 @@ model Place {
   site String?
   categories Category[]
   tags Tag[]
-
+  feedbacks Feedback[]
+  likes Like[]
+  parties Party[]
+  picturies Picture[]
+  
   @@map(name: "places")
 }
 
@@ -47,6 +53,7 @@ model Category {
   title String
   slug String
   icon String
+  tags Tag[]
   places Place[]
 
   @@map(name: "categories")
