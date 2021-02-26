@@ -4,6 +4,8 @@ import Select from 'react-select';
 import axios from 'axios'
 import { connect } from '../store/index'
 import { toggleAddPlace } from '../actions/uiElements'
+import image from 'next/image';
+
 
 const mapStateToProps = (state) => {
     return { addPlaceModal: state.uiElements.addPlaceModal }
@@ -92,12 +94,19 @@ function addPlace(props) {
     }
 
     const submitForm = async () => {
-        const data = { form, uploadedImages, selectedCategories, selectedTags }
-
-
+        try {
+            const newForm = form
+            newForm.images = uploadedImages.map(({ url, ...file }) => file)
+            newForm.categories = selectedCategories.map(({ id }) => id)
+            newForm.tags = selectedTags.map(({ id }) => id)
+    
+            console.log(newForm)
+            // const res = await axios(`${process.env.API_URL}/places`)
+            // console.log(res)
+        } catch (error) {
+            console.log(error)
+        }
     }
-
-
 
     if (!addPlaceModal) {
         return null;
