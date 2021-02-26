@@ -20,6 +20,8 @@ function addPlace(props) {
     const [selectedTags, setSelectedTags] = React.useState([])
     const [uploadedImages, setUploadedImages] = React.useState([])
 
+    const fileInput = React.useRef(null)
+
     const [form, setForm] = React.useState({
         title: '',
         abb_title: '',
@@ -96,13 +98,16 @@ function addPlace(props) {
     const submitForm = async () => {
         try {
             const newForm = form
-            newForm.images = uploadedImages.map(({ url, ...file }) => file)
+            // newForm.picturies = uploadedImages.map(({ url, ...file }) => file)
             newForm.categories = selectedCategories.map(({ id }) => id)
             newForm.tags = selectedTags.map(({ id }) => id)
-    
-            console.log(newForm)
-            // const res = await axios(`${process.env.API_URL}/places`)
-            // console.log(res)
+
+            const formData = new FormData()
+            formData.append("image", uploadedImages[0].file, "image.png")
+            newForm.picturies = formData
+
+            const res = await axios.post( `${process.env.API_URL}/places`, formData)
+            console.log(res)
         } catch (error) {
             console.log(error)
         }
@@ -155,7 +160,7 @@ function addPlace(props) {
                             <div className="add-photo-btn" onClick={(e) => e.target.nextElementSibling.click()}>
                                 Загрузить
                             </div>
-                            <input type='file' name='images' onChange={uploadImagesHandle()} className='file-input' />
+                            <input type='file' name='images' onChange={uploadImagesHandle()} ref={fileInput} className='file-input' />
                         </div>
                         <div className="photos">
                             {uploadedImages.map(({ id, url }) => (
