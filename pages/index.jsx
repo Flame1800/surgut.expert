@@ -2,6 +2,7 @@ import Place from '../src/componetns/Place'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import axios from 'axios'
 
 export default function Home({ places, categories, weather }) {
   const [dropList, setDropList] = React.useState(false)
@@ -86,27 +87,26 @@ export default function Home({ places, categories, weather }) {
 
 
 export async function getStaticProps(context) {
+  
+  const reqPalces = await axios(`${process.env.API_URL}/places`);
+  const places = reqPalces.data.data
 
-  const reqPalces = await fetch(`${process.env.API_URL}/places`);
-  const jsonPlaces = await reqPalces.json()
-  const places = jsonPlaces.data
+  const reqCategories = await axios(`${process.env.API_URL}/categories`);
+  const categories = reqCategories.data.data
 
-  const reqCategories = await fetch(`${process.env.API_URL}/categories`);
-  const jsonCategories = await reqCategories.json()
-  const categories = jsonCategories.data
-
-  const reqWeather = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=Surgut&lang=ru&units=metric&appid=2f7917fd00d765dc278d7a97fabd0c41`);
-  const weather = await reqWeather.json()
+  const reqWeather = await axios(`http://api.openweathermap.org/data/2.5/weather?q=Surgut&lang=ru&units=metric&appid=2f7917fd00d765dc278d7a97fabd0c41`);
+  const weather = reqWeather.data.main.temp
 
   const shuffle = (array) => {
     array.sort(() => Math.random() - 0.5)
   }
   shuffle(places);
+  
   return {
     props: {
       places,
       categories,
-      weather: weather.main.temp
+      weather
     },
   }
 }
