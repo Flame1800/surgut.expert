@@ -11,14 +11,19 @@
     justify-content: center;
     align-items: center;
 
+    .file-input {
+        display: none;
+    }
+
     .form {
         display: flex;
         justify-content: center;
         flex-direction: column;
         text-align: center;
-        padding: 30px;
+        padding: 20px;
         width: 50%;
         min-width: 340px;
+        max-width: 800px;
         border-radius: 10px;
         background: rgba(248, 248, 248, 0.66);
         backdrop-filter: blur(6px);
@@ -27,20 +32,25 @@
         .title {
             font-size: 35px;
             font-weight: bold;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             color: #4E4E4E;
         }
 
         .input {
-            margin: 10px;
+            color: #363636;
+            margin: 8px;
             background: #fff;
             border: none;   
             border-radius: 5px;
-            padding: 10px;
+            padding: 9px;
             outline: none;
             min-width: 250px;
             font-size: 18px;
             box-shadow: 0px 9px 10px -5px rgba(34, 60, 80, 0.45);
+        }
+
+        .input-list {
+            padding: 0;
         }
 
         textarea {
@@ -51,12 +61,14 @@
         .photo-area {
             height: 120px;
             margin: 10px;
+            padding-bottom: 10px;
 
             .head {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 font-size: 24px;
+                margin-bottom: 10px;
 
                 .add-photo-btn {
                     border-radius: 8px;
@@ -67,14 +79,48 @@
                     cursor: pointer;
                 }
             }
+
+            .photos {
+                display: flex;
+                margin-bottom: 40px;
+                overflow-y: hidden;
+                overflow-x: auto;
+            }
+
+            .img-cont {
+                margin: 5px;
+                position: relative;
+
+                &:hover .delete {
+                    display: block;
+                }
+
+                .delete {
+                    background: rgb(255, 85, 85);
+                    color: #fff;
+                    font-weight: bold;
+                    display: none;
+                    position: absolute;
+                    width: 100%;
+                    bottom: 0;
+                    cursor: pointer;
+                    .value {
+                        transform: rotate(45deg);
+                    }
+                }
+            }
+
+            .photo-for-form {
+                width: 90px;
+                height: 90px;
+            }
         }
 
         .btn-reg {
             max-width: 400px;
             min-width: 290px;
             margin: 0 auto;
-            margin-top: 20px;
-            margin-bottom: 20px;
+            margin-top: 50px;
             padding: 10px;
             font-size: 20px;
             border-radius: 5px;
@@ -95,7 +141,7 @@
             width: 50px;
             border-radius: 50%;
             border: 2px solid #fff;
-            background: rgba(133, 133, 133, 0.699);
+            background: hsl(0deg 100% 61% / 60%);
             backdrop-filter: blur(6px);
             position: absolute;
             top: -20px;

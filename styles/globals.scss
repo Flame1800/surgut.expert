@@ -41,10 +41,22 @@ a {
   .img {
       height: 190px;
       width: 100%;
-      background: url('../public/img/rest.png');
+      background: #cccccc;
       border-radius: 20px 20px 0 0;
       background-repeat: no-repeat;
       background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .no-img-icon {
+    background-image: url('../public/img/mountains.png');
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+    opacity: 0.5;
   }
 
   .sub-container {
