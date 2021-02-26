@@ -5,13 +5,14 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "json": "json-server --watch db.json --port 4000"
+    "start": "next start"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/react-fontawesome": "^0.1.14",
+    "@prisma/client": "^2.17.0",
+    "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
@@ -22,7 +23,6 @@
     "mysql2": "^2.1.0",
     "next": "10.0.4",
     "next-connect": "^0.7.1",
-    "nprogress": "^0.2.0",
     "postcss-preset-env": "^6.7.0",
     "prop-types": "^15.6.2",
     "react": "16.13.1",
@@ -30,9 +30,10 @@
     "react-awesome-slider": "^4.1.0",
     "react-dom": "16.13.1",
     "react-rating": "^2.0.5",
+    "react-select": "^4.1.0",
     "sass": "^1.32.7",
     "scss": "^0.2.4",
-    "sequelize": "^5.21.11",
+    "slug": "^4.0.3",
     "sqlite3": "^5.0.0"
   },
   "devDependencies": {
@@ -50,6 +51,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.2",
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "prisma": "^2.17.0"
   }
 }

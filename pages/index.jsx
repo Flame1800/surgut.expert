@@ -4,13 +4,7 @@ import Link from 'next/link'
 import React from 'react'
 
 export default function Home({ places, categories, weather }) {
-
   const [dropList, setDropList] = React.useState(false)
-
-  const getCategoryById = (id) => {
-    const category = categories.filter(item => item.id === id);
-    return category[0].name
-  }
   return (
       <div className="main-fon-1">
         <div className="home">
@@ -29,15 +23,15 @@ export default function Home({ places, categories, weather }) {
               </div>
               <div className="items">
                 {categories.map(item => (
-                  <Link href='places-by-category/[slug]' key={item.name} as={`places-by-category/${item.name}`}>
+                  <Link href='places-by-category/[slug]' key={item.slug} as={`places-by-category/${item.slug}`}>
                     <div className="item">
                       <Image
-                        src={`/img/icons-categories/${item.img}`}
+                        src={`/img/icons-categories/${item.icon}`}
                         alt="icon"
                         className="icon"
                         width="34"
                         height="34" />
-                      <div className="name">{item.name}</div>
+                      <div className="name">{item.title}</div>
                     </div>
                   </Link>
                 ))}
@@ -52,7 +46,7 @@ export default function Home({ places, categories, weather }) {
                     <div className="list">
                       {categories.map(item => (
                         <div key={item.id} className="item">
-                          {item.name}
+                          {item.title}
                         </div>
                       ))}
                     </div>
@@ -62,12 +56,12 @@ export default function Home({ places, categories, weather }) {
             <div className="people"></div>
           </div>
           <div className="place-items">
-            <div className="decorations">
+            {/* <div className="decorations">
               <div className="fragment spring1"></div>
               <div className="fragment spring2"></div>
               <div className="fragment switch"></div>
               <div className="fragment coubs"></div>
-            </div>
+            </div> */}
             <div className="head">
               <div className="title">Интересные места Сургута</div>
               <div className="buttons">
@@ -80,8 +74,7 @@ export default function Home({ places, categories, weather }) {
                 if (id > 29) {
                   return null;
                 }
-                const category = getCategoryById(place.category_id);
-                place.category = category;
+                place.category = place.categories[0].title;
                 return (<Place key={place.id} place={place} />)
               })}
             </div>
@@ -95,10 +88,12 @@ export default function Home({ places, categories, weather }) {
 export async function getStaticProps(context) {
 
   const reqPalces = await fetch(`${process.env.API_URL}/places`);
-  const places = await reqPalces.json()
+  const jsonPlaces = await reqPalces.json()
+  const places = jsonPlaces.data
 
   const reqCategories = await fetch(`${process.env.API_URL}/categories`);
-  const categories = await reqCategories.json()
+  const jsonCategories = await reqCategories.json()
+  const categories = jsonCategories.data
 
   const reqWeather = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=Surgut&lang=ru&units=metric&appid=2f7917fd00d765dc278d7a97fabd0c41`);
   const weather = await reqWeather.json()

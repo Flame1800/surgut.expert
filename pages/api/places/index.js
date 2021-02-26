@@ -8,7 +8,11 @@ const handler = nextConnect()
   // GET /api/places Все места
   .get(async (req, res) => {
     res.statusCode = 200;
-    const places = await prisma.place.findMany()
+    const places = await prisma.place.findMany({
+      include: {
+        categories: true
+      }
+    })
     res.json({
         status: 'success',
         data: places,

@@ -20,16 +20,12 @@ function Header(props, { children }) {
         const getData = async () => {
             const reqCategories = await fetch(`${process.env.API_URL}/categories`);
             const categoriesData = await reqCategories.json()
+            const categories = categoriesData.data
 
-            setCategories(categoriesData);
+            setCategories(categories);
         }
         getData();
     }, [])
-
-    const toggleAuthModal = (e) => {
-        e.preventDefault();
-        console.log(toggleAuth)
-    }
 
     return (
         <>
@@ -45,13 +41,13 @@ function Header(props, { children }) {
                             {categories.map(item => (
                                 <Link key={item.id} href={`${process.env.BASE_URL}/categories/[id]`} as={`${process.env.BASE_URL}/categories/${item.id}`}>
                                     <div className="item" >
-                                        {item.name}
+                                        {item.title}
                                     </div>
                                 </Link>
                             ))}
                         </div>
                     </a>
-                    <div onClick={(e) => toggleAuthModal(e)} className={classes.person}>
+                    <div onClick={() => toggleAuth()} className={classes.person}>
                         <div className={classes.icon}></div>
                         <div className="text">
                             Войти

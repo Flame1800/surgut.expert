@@ -6,7 +6,7 @@ module.exports = {
   },
   env: {
     api: process.env.PORT + 'api/',
-    API_URL: 'http://localhost:4000',
+    API_URL: 'http://localhost:3000/api',
     BASE_URL: 'http://localhost:3000',
     DB_NAME: 'surut_expert',
     DB_USER: 'postgres',
