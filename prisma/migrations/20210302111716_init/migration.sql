@@ -73,10 +73,11 @@ CREATE TABLE `places` (
     `abb_title` VARCHAR(191) NOT NULL,
     `slug` VARCHAR(191) NOT NULL,
     `location` VARCHAR(191) NOT NULL,
-    `operating_mode` VARCHAR(191) NOT NULL,
+    `operating_mode` VARCHAR(191),
     `description` VARCHAR(191) NOT NULL,
     `tel` VARCHAR(191),
     `site` VARCHAR(191),
+    `category_properties` JSON,
 
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -87,6 +88,7 @@ CREATE TABLE `categories` (
     `title` VARCHAR(191) NOT NULL,
     `slug` VARCHAR(191) NOT NULL,
     `icon` VARCHAR(191) NOT NULL,
+    `property_schema` JSON NOT NULL,
 
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
