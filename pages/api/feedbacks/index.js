@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 
 const handler = nextConnect()
   
-  // POST /api/places Создать новое место
+  // POST /api/feedbacks Создать новый отзыв
   .post(async (req, res) => {
     const result = await prisma.feedback.create({
       data: req.body

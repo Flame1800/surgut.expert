@@ -12,103 +12,155 @@ enum Role {
   USER
   ADMIN
 }
-
+//-------------------------------------------------------------------------------
 model User {
-  id Int @id @default(autoincrement())
-  email String @unique
-  phone String @unique
-  username String
-  password String
-  name  String?
-  surname String?
-  role Role @default(USER)
-  likes Like[]
-  feedbacks Feedback[]
+  id            Int       @default(autoincrement()) @id
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime? @map(name: "email_verified")
+  image         String?
+  phone         String?   @unique
+  fistname      String?
+  surname       String?
+  role          Role?      @default(USER)
+  likes         Like[]
+  feedbacks     Feedback[]
+  createdAt     DateTime  @default(now()) @map(name: "created_at")
+  updatedAt     DateTime  @default(now()) @map(name: "updated_at")
 
   @@map(name: "users")
 }
 
+
+
+model Account {
+  id                 Int       @default(autoincrement()) @id
+  compoundId         String    @unique @map(name: "compound_id")
+  userId             Int       @map(name: "user_id")
+  providerType       String    @map(name: "provider_type")
+  providerId         String    @map(name: "provider_id")
+  providerAccountId  String    @map(name: "provider_account_id")
+  refreshToken       String?   @map(name: "refresh_token")
+  accessToken        String?   @map(name: "access_token")
+  accessTokenExpires DateTime? @map(name: "access_token_expires")
+  createdAt          DateTime  @default(now()) @map(name: "created_at")
+  updatedAt          DateTime  @default(now()) @map(name: "updated_at")
+
+  @@index([providerAccountId], name: "providerAccountId")
+  @@index([providerId], name: "providerId")
+  @@index([userId], name: "userId")
+
+  @@map(name: "accounts")
+}
+
+model Session {
+  id           Int      @default(autoincrement()) @id
+  userId       Int      @map(name: "user_id")
+  expires      DateTime
+  sessionToken String   @unique @map(name: "session_token")
+  accessToken  String   @unique @map(name: "access_token")
+  createdAt    DateTime @default(now()) @map(name: "created_at")
+  updatedAt    DateTime @default(now()) @map(name: "updated_at")
+
+  @@map(name: "sessions")
+}
+
+model VerificationRequest {
+  id         Int      @default(autoincrement()) @id
+  identifier String
+  token      String   @unique
+  expires    DateTime
+  createdAt  DateTime  @default(now()) @map(name: "created_at")
+  updatedAt  DateTime  @default(now()) @map(name: "updated_at")
+
+  @@map(name: "verification_requests")
+}
+
+//----------------------------------------------------------------------------------
+
 model Place {
-  id Int @id @default(autoincrement())
-  title String
-  abb_title String
-  slug String
-  location String
-  operating_mode String
-  description  String
-  tel String?
-  site String?
-  categories Category[]
-  tags Tag[]
-  feedbacks Feedback[]
-  likes Like[]
-  parties Party[]
-  picturies Picture[]
+  id                  Int @id @default(autoincrement())
+  title               String
+  abbTitle            String @map(name: "abb_title")
+  slug                String
+  location            String
+  operatingMode       String? @map(name: "operating_mode")
+  description         String
+  tel                 String?
+  site                String?
+  category_properties Json?
+  categories          Category[]
+  tags                Tag[]
+  feedbacks           Feedback[]
+  likes               Like[]
+  parties             Party[]
+  picturies           Picture[]
   
   @@map(name: "places")
 }
 
 model Category {
   id Int @id @default(autoincrement())
-  title String
-  slug String
-  icon String
-  tags Tag[]
-  places Place[]
+  title           String
+  slug            String
+  icon            String
+  property_schema Json
+  tags            Tag[]
+  places          Place[]
 
   @@map(name: "categories")
 }
 
 model Tag {
-  id Int @id @default(autoincrement())
-  title String
-  slug String
-  category Category @relation(fields: [categoryId], references: [id])
-  categoryId Int
-  places Place[]
+  id         Int @id @default(autoincrement())
+  title      String
+  slug       String
+  category   Category? @relation(fields: [categoryId], references: [id])
+  categoryId Int?  @map(name: "category_id")
+  places     Place[]
 
   @@map(name: "tags")
 }
 
 model Feedback {
-  id Int @id @default(autoincrement())
+  id       Int @id @default(autoincrement())
   feedback String
-  rate Float
-  author User @relation(fields: [authorId], references: [id])
-  authorId Int
-  place Place @relation(fields: [placeId], references: [id])
-  placeId Int
+  rate     Float
+  author   User @relation(fields: [authorId], references: [id])
+  authorId Int @map(name: "user_id")
+  place    Place @relation(fields: [placeId], references: [id])
+  placeId  Int @map(name: "place_id")
 
   @@map(name: "feedbacks")
 }
 
 model Like {
-  author User @relation(fields: [authorId], references: [id])
-  authorId Int
-  place Place @relation(fields: [placeId], references: [id])
-  placeId Int
+  user    User @relation(fields: [userId], references: [id])
+  userId  Int @map(name: "user_id")
+  place   Place @relation(fields: [placeId], references: [id])
+  placeId Int @map(name: "place_id")
 
-  @@id([authorId, placeId])
+  @@id([userId, placeId])
   @@map(name: "likes")
 }
 
 model Party {
-  id Int @id @default(autoincrement())
-  title String
+  id          Int @id @default(autoincrement())
+  title       String
   description String
-  date DateTime
-  place Place @relation(fields: [placeId], references: [id])
-  placeId Int
+  date        DateTime
+  place       Place @relation(fields: [placeId], references: [id])
+  placeId     Int @map(name: "place_id")
 
   @@map(name: "parties")  
 }
 
 model Picture {
-  id Int @id @default(autoincrement())
-  href String
+  id          Int @id @default(autoincrement())
+  href        String
   description String?
-  place Place @relation(fields: [placeId], references: [id])
-  placeId Int 
+  place       Place? @relation(fields: [placeId], references: [id])
+  placeId     Int? @map(name: "place_id")
 
   @@map(name: "picturies") 
 }
