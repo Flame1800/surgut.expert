@@ -4,6 +4,7 @@ import Select from 'react-select';
 import axios from 'axios'
 import { connect } from '../store/index'
 import { toggleAddPlace } from '../actions/uiElements'
+import ImageUploading from "react-images-uploading";
 
 const mapStateToProps = (state) => {
     return { addPlaceModal: state.uiElements.addPlaceModal }
@@ -33,22 +34,15 @@ function addPlace(props) {
             const reqCategories = await axios(`${process.env.API_URL}/categories`);
             const categories = reqCategories.data.data
 
-            const formatedCategories = categories.map(item => {
-                item.value = item.title;
-                item.label = item.title;
-                return item
-            })
+            const formatedCategories = categories
+                .map(item => ({ ...item, value: item.title, label: item.title }))
+            setCategories(formatedCategories);
 
             const reqTags = await axios(`${process.env.API_URL}/tags`);
             const tags = reqTags.data.data
 
-            const formatedTags = tags.map(item => {
-                item.value = item.title;
-                item.label = item.title;
-                return item
-            })
-
-            setCategories(formatedCategories);
+            const formatedTags = tags
+                .map(item => ({ ...item, value: item.title, label: item.title }))
             setTags(formatedTags);
         }
         getData();
@@ -57,11 +51,7 @@ function addPlace(props) {
     const formHandler = () => (e) => {
         e.preventDefault()
         const { value, name } = e.target
-
-        setForm({
-            ...form,
-            [name]: value
-        })
+        setForm({ ...form, [name]: value })
     }
 
     const handleSelectCat = (newValue) => {
@@ -72,32 +62,53 @@ function addPlace(props) {
         setSelectedTags(newValue)
     };
 
-    const deleteImage = (id) => (e) => {
-        e.preventDefault()
-        const newImages = uploadedImages.filter(file => file.id !== id)
-        setUploadedImages(newImages)
-    }
+    const onChangeImages = (imageList, addUpdateIndex) => {
+        // data for submit
+        setUploadedImages(imageList);
+    };
 
-    const uploadImagesHandle = () => (e) => {
-        e.preventDefault()
-        const { files } = e.target
-        const file = files[0]
-        const reader = new FileReader();
+    const uploadPhotos = async () => {
+        const formData = new FormData()
+        uploadedImages.forEach(({ data_url, ...file }) => {
+            formData.append('theFiles', file.file)
+        })
 
-        reader.onloadend = () => {
-            const uploadFile = { url: reader.result, file, id: Math.random() }
-            setUploadedImages([...uploadedImages, uploadFile])
+        try {
+            const config = {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            }
+            const { data } = await axios.post(`${process.env.API_URL}/upload`, formData, config)
+            if (data.data === 'success') {
+                return true
+            }
+            return false
+        } catch (error) {
+            console.log(error)
+            return false
         }
-        reader.readAsDataURL(file)
     }
 
     const submitForm = async () => {
-        const data = { form, uploadedImages, selectedCategories, selectedTags }
+        const photoApiResponce = uploadPhotos()
 
+        if (photoApiResponce) {
+            form.categories = selectedCategories.map(({ id }) => id)
+            form.tags = selectedTags.map(({ id }) => id)
+            form.picturies = uploadedImages.map(({ data_url, ...file }) => file.file.name)
 
+            try {
+                const { data } = await axios.post(`${process.env.API_URL}/places`, form)
+                console.log(data)
+            } catch (error) {
+                console.log(error)
+            }
+
+        } else {
+            console.log('Ошибка загрузки фотографий')
+        }
     }
-
-
 
     if (!addPlaceModal) {
         return null;
@@ -141,23 +152,46 @@ function addPlace(props) {
                     />
                     <textarea type="textarea" onChange={formHandler()} value={form.description} name='description' className="input" placeholder='Описание' />
                     <div className="photo-area">
-                        <div className="head">
-                            Фотографии
-                            <div className="add-photo-btn" onClick={(e) => e.target.nextElementSibling.click()}>
-                                Загрузить
-                            </div>
-                            <input type='file' name='images' onChange={uploadImagesHandle()} className='file-input' />
-                        </div>
-                        <div className="photos">
-                            {uploadedImages.map(({ id, url }) => (
-                                <div className="img-cont" key={id}>
-                                    <img src={url} className='photo-for-form' />
-                                    <div className="delete" onClick={deleteImage(id)} >
-                                        <div className="value">+</div>
+                        <ImageUploading
+                            multiple
+                            value={uploadedImages}
+                            onChange={onChangeImages}
+                            maxNumber={10}
+                            dataURLKey="data_url"
+                        >
+                            {({
+                                imageList,
+                                onImageUpload,
+                                onImageRemove,
+                                isDragging,
+                                dragProps
+                            }) => (
+                                // write your building UI
+                                <>
+                                    <div className="head">
+                                        Фотографии
+                                    <div
+                                            style={isDragging ? { color: "red" } : null}
+                                            className="add-photo-btn"
+                                            onClick={onImageUpload}
+                                            {...dragProps}
+                                        >
+                                            Загрузить
                                     </div>
-                                </div>
-                            ))}
-                        </div>
+                                    </div>
+                                    <div className="photos">
+                                        {imageList.map((image, index) => (
+                                            <div className="img-cont" key={index}>
+                                                <img src={image.data_url} className='photo-for-form' />
+                                                <div className="delete" onClick={() => onImageRemove(index)} >
+                                                    <div className="value">+</div>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </>
+                            )}
+                        </ImageUploading>
                     </div>
                     <div className="btn-reg" name="images" onClick={(e) => submitForm(e)}>
                         Добавить

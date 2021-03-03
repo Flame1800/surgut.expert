@@ -1,7 +1,7 @@
 datasource db {
   provider = "mysql"
-  url="mysql://root:root@localhost:3306/surgut.expert"
-  //url = env("DATABASE_URL")
+  url      = "mysql://root@localhost:3306/surgut.expert"
+  //url      = env("DATABASE_URL")
 }
 
 generator client {
