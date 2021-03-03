@@ -21,5 +21,20 @@ const handler = nextConnect()
         data: place,
     })
   })
+
+  // PUT /api/places/:id Изменяем данные конкретного месте
+  .put(async (req, res) => {
+    const place_id = Number(req.query.id);
+    const { body } = req;
+
+    const place = await prisma.place.update({
+      where: { id: place_id },
+      data: body,
+    })
+    res.json({
+      status: 'success',
+      data: place,
+    })
+  })
  
 export default handler;
