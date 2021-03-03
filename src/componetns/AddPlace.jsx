@@ -19,8 +19,6 @@ function addPlace(props) {
     const [selectedTags, setSelectedTags] = React.useState([])
     const [uploadedImages, setUploadedImages] = React.useState([])
 
-    const fileInput = React.useRef(null)
-
     const [form, setForm] = React.useState({
         title: '',
         abb_title: '',
@@ -69,27 +67,46 @@ function addPlace(props) {
         setUploadedImages(imageList);
     };
 
-    const submitForm = async () => {
+    const uploadPhotos = async () => {
+        const formData = new FormData()
+        uploadedImages.forEach(({ data_url, ...file }) => {
+            formData.append('theFiles', file.file)
+        })
+
         try {
-            const newForm = form
-            newForm.picturies = uploadedImages.map(({ data_url, ...file }) => file.file)
-            newForm.categories = selectedCategories.map(({ id }) => id)
-            newForm.tags = selectedTags.map(({ id }) => id)
-
-            console.log(newForm.picturies)
-
-            const formData = new FormData()
-            formData.append('theFiles', uploadedImages)
             const config = {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
             }
             const { data } = await axios.post(`${process.env.API_URL}/upload`, formData, config)
-            console.log(data)
-
+            if (data.data === 'success') {
+                return true
+            }
+            return false
         } catch (error) {
             console.log(error)
+            return false
+        }
+    }
+
+    const submitForm = async () => {
+        const photoApiResponce = uploadPhotos()
+
+        if (photoApiResponce) {
+            form.categories = selectedCategories.map(({ id }) => id)
+            form.tags = selectedTags.map(({ id }) => id)
+            form.picturies = uploadedImages.map(({ data_url, ...file }) => file.file.name)
+
+            try {
+                const { data } = await axios.post(`${process.env.API_URL}/places`, form)
+                console.log(data)
+            } catch (error) {
+                console.log(error)
+            }
+
+        } else {
+            console.log('Ошибка загрузки фотографий')
         }
     }
 

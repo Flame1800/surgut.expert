@@ -45,6 +45,7 @@ const handler = nextConnect()
       res.statusCode = 200;
       res.json(JSON.stringify(result))
     } catch (err) {
+      console.log(err)
       res.status(500).json({ err })
     }
   })
